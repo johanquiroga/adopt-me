@@ -10,7 +10,7 @@ const spin = keyframes`
   }
 `;
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
   return (
     <header
       css={css`
