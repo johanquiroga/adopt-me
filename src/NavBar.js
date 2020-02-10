@@ -22,7 +22,7 @@ const NavBar = () => {
       <span
         css={css`
           font-size: 60px;
-          display:inline-block;
+          display: inline-block;
           animation: 1s ${spin} linear infinite;
 
           &:hover {

@@ -1,5 +1,5 @@
 import React, { useState, lazy, Suspense } from 'react';
-import { render } from 'react-dom';
+// import { render } from 'react-dom';
 import { Router } from '@reach/router';
 
 import NavBar from './NavBar';
@@ -28,4 +28,6 @@ const App = () => {
   );
 };
 
-render(<App />, document.getElementById('root'));
+// render(<App />, document.getElementById('root'));
+
+export default App;
