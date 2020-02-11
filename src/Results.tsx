@@ -9,7 +9,7 @@ interface IProps {
 
 const Results: React.FC<IProps> = ({ pets }) => {
   return (
-    <div className="search">
+    <div className="search" data-testid="search-results">
       {pets.length === 0 ? (
         <h1>No Pets Found</h1>
       ) : (

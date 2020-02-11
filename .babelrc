@@ -2,6 +2,7 @@
   "presets": [
     "@babel/preset-react",
     "@babel/preset-env",
+    "@babel/preset-typescript",
     ["@emotion/babel-preset-css-prop", { "sourceMap": false }]
   ],
   "plugins": ["@babel/plugin-proposal-class-properties"]

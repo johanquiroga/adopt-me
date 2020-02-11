@@ -1,0 +1,5 @@
+{
+  "verbose": true,
+  "testRegex": "(/spec/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+  "moduleFileExtensions": ["ts", "tsx", "js"]
+}

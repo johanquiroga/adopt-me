@@ -22,14 +22,14 @@ const SearchParams: React.FC<RouteComponentProps &
   const [animal, AnimalDropdown] = useDropdown('Animal', 'dog', ANIMALS);
   const [breed, BreedDropdown, setBreed] = useDropdown('Breed', '', breeds);
 
-  async function requestPets() {
-    const { animals } = await pet.animals({
+  function requestPets() {
+    pet.animals({
       location: props.location,
       breed,
       type: animal,
+    }).then(({ animals }) => {
+      setPets(animals || []);
     });
-
-    setPets(animals || []);
   }
 
   useEffect(() => {
@@ -39,6 +39,7 @@ const SearchParams: React.FC<RouteComponentProps &
     pet
       .breeds(animal)
       .then(({ breeds: apiBreeds }) => {
+        console.log(apiBreeds);
         const breedStrings = apiBreeds.map(({ name }) => name);
         setBreeds(breedStrings);
       })
@@ -101,4 +102,5 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   setLocation: (location: string) => dispatch(changeLocation(location)),
 });
 
+export { SearchParams };
 export default connect(mapStateToProps, mapDispatchToProps)(SearchParams);
