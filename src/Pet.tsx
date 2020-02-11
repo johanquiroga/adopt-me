@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from '@reach/router';
-import { Photo } from "@frontendmasters/pet";
+import { Photo } from '@frontendmasters/pet';
 
 interface IProps {
   name: string;
@@ -11,7 +11,14 @@ interface IProps {
   id: number;
 }
 
-const Pet: React.FC<IProps> = ({ name, animal, breed, media, location, id }) => {
+const Pet: React.FC<IProps> = ({
+  name,
+  animal,
+  breed,
+  media,
+  location,
+  id,
+}) => {
   let hero = 'http://placecorgi.com/300/300';
   if (media.length) {
     hero = media[0].small;

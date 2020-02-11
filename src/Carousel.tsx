@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Photo } from "@frontendmasters/pet";
+import { Photo } from '@frontendmasters/pet';
 
 interface IProps {
-  media: Photo[]
+  media: Photo[];
 }
 
 interface IState {

@@ -1,14 +1,18 @@
 import React, { lazy } from 'react';
-import pet, {Photo} from '@frontendmasters/pet';
+import { connect } from 'react-redux';
+import pet, { Photo } from '@frontendmasters/pet';
 import { navigate, RouteComponentProps } from '@reach/router';
 
+import { AppState } from './store';
+
 import Carousel from './Carousel';
-import ThemeContext from './ThemeContext';
 import ErrorBoundary from './ErrorBoundary';
 
 const Modal = lazy(() => import('./Modal'));
 
-class Details extends React.Component<RouteComponentProps<{ id: string; }>> {
+class Details extends React.Component<
+  RouteComponentProps<{ id: string }> & ReturnType<typeof mapStateToProps>
+> {
   state = {
     loading: true,
     showModal: false,
@@ -68,16 +72,14 @@ class Details extends React.Component<RouteComponentProps<{ id: string; }>> {
         <div>
           <h1>{name}</h1>
           <h2>{`${animal} - ${breed} - ${location}`}</h2>
-          <ThemeContext.Consumer>
-            {([theme]) => (
-              <button
-                onClick={this.toggleModal}
-                style={{ backgroundColor: theme }}
-              >
-                Adopt {name}
-              </button>
-            )}
-          </ThemeContext.Consumer>
+
+          <button
+            onClick={this.toggleModal}
+            style={{ backgroundColor: this.props.theme }}
+          >
+            Adopt {name}
+          </button>
+
           <p>{description}</p>
           {showModal ? (
             <Modal>
@@ -96,10 +98,16 @@ class Details extends React.Component<RouteComponentProps<{ id: string; }>> {
   }
 }
 
-export default function DetailsWithErrorBoundary(props: RouteComponentProps<{ id: string; }>) {
+const mapStateToProps = ({ theme }: AppState) => ({ theme });
+
+const WrappedDetails = connect(mapStateToProps)(Details);
+
+export default function DetailsWithErrorBoundary(
+  props: RouteComponentProps<{ id: string }>,
+) {
   return (
     <ErrorBoundary>
-      <Details {...props} />
+      <WrappedDetails {...props} />
     </ErrorBoundary>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Pet from './Pet';
 
-import { Animal } from "@frontendmasters/pet";
+import { Animal } from '@frontendmasters/pet';
 
 interface IProps {
   pets: Animal[];

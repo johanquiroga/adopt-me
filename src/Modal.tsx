@@ -8,12 +8,12 @@ const Modal: React.FC = ({ children }) => {
   useEffect(() => {
     const modalRoot = document.getElementById('modal');
     if (!modalRoot) {
-      return
+      return;
     }
     modalRoot.appendChild(elRef.current);
 
     return () => {
-      modalRoot.removeChild(elRef.current)
+      modalRoot.removeChild(elRef.current);
     };
   }, []);
 

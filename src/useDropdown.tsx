@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
-const useDropdown = (label: string, defaultState: string, options: string[]) => {
+const useDropdown = (
+  label: string,
+  defaultState: string,
+  options: string[],
+) => {
   const [state, setState] = useState(defaultState);
 
   const id = `use-dropdown-${label.replace(' ', '').toLowerCase()}`;
@@ -25,7 +29,11 @@ const useDropdown = (label: string, defaultState: string, options: string[]) => 
     </label>
   );
 
-  return [state, Dropdown, setState] as [string, React.FC, React.Dispatch<string>];
+  return [state, Dropdown, setState] as [
+    string,
+    React.FC,
+    React.Dispatch<string>,
+  ];
 };
 
 export default useDropdown;

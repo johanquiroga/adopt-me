@@ -7,7 +7,7 @@
     "clear-build-cache": "rm -rf .cache/ dist/",
     "dev": "parcel src/index.html",
     "dev:mock": "cross-env PET_MOCK=mock parcel src/index.html",
-    "format": "prettier \"src/**/*.{js,html}\" --write",
+    "format": "prettier \"src/**/*.{js,ts,tsx,html}\" --write",
     "lint": "tslint --project",
     "typecheck": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,6 +23,7 @@
     "@types/reach__router": "^1.2.6",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
+    "@types/react-redux": "^7.1.7",
     "cross-env": "^7.0.0",
     "parcel-bundler": "^1.12.4",
     "prettier": "^1.19.1",
@@ -36,8 +37,11 @@
     "@emotion/core": "^10.0.27",
     "@frontendmasters/pet": "^1.0.3",
     "@reach/router": "^1.3.1",
-    "react": "15.x || 16.x || 16.4.0-alpha.0911da3",
-    "react-dom": "15.x || 16.x || 16.4.0-alpha.0911da3"
+    "react": "^16.8.3",
+    "react-dom": "15.x || 16.x || 16.4.0-alpha.0911da3",
+    "react-redux": "^7.1.3",
+    "redux": "^2.0.0 || ^3.0.0 || ^4.0.0-0",
+    "typesafe-actions": "^5.1.0"
   },
   "browserslist": [
     "last 2 Chrome versions"
